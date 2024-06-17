@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Para papá</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: url(montaña.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 800px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    h1, p {
+      text-align: center;
+    }
+
+    #confettiButton {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #confettiButton:hover {
+      background-color: #0056b3;
+    }
+
+    #confettiContainer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .confetti, .heart {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      animation: fall 3s ease infinite;
+    }
+
+    .confetti {
+      background-color: #e91e63;
+      border-radius: 50%;
+    }
+
+    .confetti:nth-child(2n) {
+      background-color: #9c27b0;
+      width: 8px;
+      height: 8px;
+    }
+
+    .confetti:nth-child(3n) {
+      background-color: #3f51b5;
+      width: 12px;
+      height: 12px;
+    }
+
+    .confetti:nth-child(4n) {
+      background-color: #00bcd4;
+      width: 9px;
+      height: 9px;
+    }
+
+    .confetti:nth-child(5n) {
+      background-color: #4caf50;
+      width: 11px;
+      height: 11px;
+    }
+
+    .heart {
+      width: 15px;
+      height: 15px;
+      background-color: red;
+      position: absolute;
+      transform: rotate(-45deg);
+      animation: fall 3s ease infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      width: 15px;
+      height: 15px;
+      background-color: red;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .heart::before {
+      top: -7.5px;
+      left: 0;
+    }
+
+    .heart::after {
+      top: 0;
+      left: -7.5px;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100vh) rotateZ(0deg);
+      }
+      100% {
+        transform: translateY(100vh) rotateZ(360deg);
+      }
+    }
+
+    .image-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .image-grid img {
+      width: 150px;
+      height: 250px;
+      display: block;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    @media (max-width: 600px) {
+      .image-grid img {
+        width: 120px;
+        height: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 style="color: #0000CC;">Para mi querido padre :D</h1>
+    <p>En tu mirada encuentro fortaleza,
+      en tus manos, el camino hacia la verdad,
+      en tu voz, el susurro de la experiencia,
+      en tu amor, la luz que nunca se apaga.
+
+      Padre, en cada paso que me guías,
+      en cada abrazo que me sostiene,
+      en cada consejo que me ilumina,
+      eres el faro que en la vida me orienta.
+
+      Tu sacrificio es mi ejemplo,
+      tu bondad es mi faro en la tormenta,
+      en tu risa encuentro mi alegría,
+      en tu abrazo, el hogar que nunca se pierde.
+
+      Gracias por ser mi guía constante,
+      por tu amor que nunca descansa,
+      hoy y siempre, en cada latido,
+      eres mi héroe, mi padre, mi esperanza.
+
+      ¡Feliz Día del Padre!</p>
+
+    <div class="image-grid">
+      <img src="family.jpg" alt="Familia">
+      <img src="Papá.jpg" alt="Papá">
+      <img src="hijito.jpg" alt="Hijito">
+      <img src="papito.jpg" alt="Papito">
+      <img src="hijo.jpg" alt="Hijo">
+    </div>
+
+    <button id="confettiButton">Presiona :D</button>
+    <div id="confettiContainer"></div>
+  </div>
+
+  <script>
+    document.getElementById('confettiButton').addEventListener('click', function() {
+      for (let i = 0; i < 100; i++) {
+        let confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * (window.innerWidth - 10) + 'px';
+        confetti.style.animationDelay = Math.random() * 2 + 's';
+        document.getElementById('confettiContainer').appendChild(confetti);
+
+        let heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.style.left = Math.random() * (window.innerWidth - 15) + 'px';
+        heart.style.animationDelay = Math.random() * 2 + 's';
+        document.getElementById('confettiContainer').appendChild(heart);
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
